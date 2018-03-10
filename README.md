@@ -2,7 +2,7 @@
 
 Repositório com projetos criados durante estudos de desenvolvimento.
 Conteúdos estudados:
-> JavaScript
-> AngularJS
-> JQuery
-> C# Design Patterns
+- JavaScript
+- AngularJS
+- JQuery
+- C# Design Patterns
