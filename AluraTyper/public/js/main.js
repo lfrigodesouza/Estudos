@@ -73,17 +73,3 @@ function inicializaMarcadores() {
 
     });
 }
-
-function inserePlacar() {
-    let corpoTabela = $(".placar").find("tbody");
-    let usuario = "Lucas";
-    let numPalavras = $("#contador-palavras").text();
-    let linha = "<tr>" +
-                    "<td>" + usuario + "</td>" +
-                    "<td>" + numPalavras + "</td>" +
-                    "<td><i class="material-icons">restore</i></td>" +
-                "</tr>";
-    
-    corpoTabela.prepend(linha);
-
-}
