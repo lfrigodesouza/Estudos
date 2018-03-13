@@ -49,21 +49,66 @@ namespace ByteBank.Agencias
             btnOk.Click += cancelarEventHandler;
             btnCancelar.Click += okEventHandler;
 
-            txtNome.TextChanged += TxtNome_TextChanged;
+            txtNome.Validacao += ValidarCampoNulo;
+            txtTelefone.Validacao += ValidarCampoNulo;
+            txtEndereco.Validacao += ValidarCampoNulo;
+            txtDescricao.Validacao += ValidarCampoNulo;
+
+            txtNumero.Validacao += ValidarCampoNulo;
+            txtNumero.Validacao += ValidarSomenteDigito;
         }
 
-        private void TxtNome_TextChanged(object sender, TextChangedEventArgs e)
+        private void ValidarSomenteDigito(object sender, ValidacaoEventArgs e)
         {
-            var textoEstaVazio = String.IsNullOrWhiteSpace(txtNome.Text);
-            if (textoEstaVazio)
-            {
-                txtNome.Background = new SolidColorBrush(Colors.OrangeRed);
-            }
-            else
-            {
-                txtNome.Background = new SolidColorBrush(Colors.White);
-            }
+            e.Valido = e.Texto.All(Char.IsDigit);
         }
+        private void ValidarCampoNulo(object sender, ValidacaoEventArgs e)
+        {
+            e.Valido = !String.IsNullOrWhiteSpace(e.Texto);
+        }
+
+        //private void ValidarSomenteDigito(object sender, EventArgs e)
+        //{
+        //    var txt = sender as TextBox;
+
+        //    //Func<char, bool> verificaSeEDigito = caractere =>
+        //    //{
+        //    //    return char.IsDigit(caractere);
+        //    //};
+
+        //    var todosCaracteresSaoDigitos = txt.Text.All(Char.IsDigit);
+
+        //    txt.Background = todosCaracteresSaoDigitos
+        //        ? new SolidColorBrush(Colors.White)
+        //        : new SolidColorBrush(Colors.OrangeRed);
+        //}
+
+
+
+
+        //private void ValidarCampoNulo(object sender, EventArgs e)
+        //{
+        //    var txt = sender as TextBox;
+        //    var textoEstaVazio = String.IsNullOrWhiteSpace(txt.Text);
+
+        //    txt.Background = textoEstaVazio
+        //    ? new SolidColorBrush(Colors.OrangeRed)
+        //    : new SolidColorBrush(Colors.White);
+        //}
+
+
+        //private TextChangedEventHandler ConstruirDelegateDeValidacaoCampoNulo(TextBox txt)
+        //{
+        //    return (o, e) =>
+        //    {
+        //        var textoEstaVazio = String.IsNullOrWhiteSpace(txt.Text);
+
+        //        txt.Background = textoEstaVazio
+        //        ? new SolidColorBrush(Colors.OrangeRed)
+        //        : new SolidColorBrush(Colors.White);
+
+        //    };
+        //}
 
         private void Fechar(object sender, EventArgs e) =>
             Close();
