@@ -11,7 +11,7 @@ namespace ByteBank.Portal
     {
         static void Main(string[] args)
         {
-            var prefixos = new string[] { "http://localhost:5341/" };
+            var prefixos = new string[] { "http://localhost:5342/" };
             var webApplication = new WebApplication(prefixos);
             webApplication.Iniciar();
         }
