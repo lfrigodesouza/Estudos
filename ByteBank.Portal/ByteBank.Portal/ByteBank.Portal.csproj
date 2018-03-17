@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,10 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CambioController.cs" />
+    <Compile Include="Controller\CartaoController.cs" />
+    <Compile Include="Controller\ErrorController.cs" />
+    <Compile Include="Filtros\ApenasHorarioComercialFiltroAttribute.cs" />
     <Compile Include="Infraestrutura\Binding\ActionBinder.cs" />
     <Compile Include="Infraestrutura\Binding\ActionBindingInfo.cs" />
     <Compile Include="Infraestrutura\Binding\ArgumentoNomeValor.cs" />
     <Compile Include="Infraestrutura\ControllerBase.cs" />
+    <Compile Include="Infraestrutura\ControllerResolver.cs" />
+    <Compile Include="Infraestrutura\Filtros\FilterResolver.cs" />
+    <Compile Include="Filtros\FiltroAttribute.cs" />
+    <Compile Include="Infraestrutura\Filtros\FilterResult.cs" />
+    <Compile Include="Infraestrutura\IoC\ContainerSimples.cs" />
+    <Compile Include="Infraestrutura\IoC\IContainer.cs" />
     <Compile Include="Infraestrutura\ManipuladorRequisicaoArquivo.cs" />
     <Compile Include="Infraestrutura\ManipuladorRequisicaoController.cs" />
     <Compile Include="Infraestrutura\Utilidades.cs" />
@@ -62,8 +72,8 @@
     <EmbeddedResource Include="Assets\js\main.js" />
     <EmbeddedResource Include="View\Cambio\MXN.html" />
     <EmbeddedResource Include="View\Cambio\USD.html" />
-    <EmbeddedResource Include="View\Cartoes\Credito.html" />
-    <EmbeddedResource Include="View\Cartoes\Debito.html" />
+    <EmbeddedResource Include="View\Cartao\Credito.html" />
+    <EmbeddedResource Include="View\Cartao\Debito.html" />
     <EmbeddedResource Include="View\Home\Index.html" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\Cambio\Calculo.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Erro\Inesperado.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

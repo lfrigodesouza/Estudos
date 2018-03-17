@@ -17,7 +17,7 @@ namespace ByteBank.Portal.Infraestrutura.Binding
         {
             MethodInfo = methodInfo ?? throw new ArgumentNullException(nameof(methodInfo));
 
-            if (tuplasArgumentoNomeValor == null || tuplasArgumentoNomeValor.Count() == 0)
+            if (tuplasArgumentoNomeValor == null)
                 throw new ArgumentNullException(nameof(tuplasArgumentoNomeValor));
 
             TuplasArgumentoNomeValor = new ReadOnlyCollection<ArgumentoNomeValor>(tuplasArgumentoNomeValor.ToList());
